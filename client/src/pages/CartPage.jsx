@@ -1,9 +1,10 @@
 import { Table, Card, Button,Modal } from "antd";
 import Header from "../components/header/Header";
 import { useState } from "react";
+import CreateBill from "../components/cart/CreateBill";
 
 const CartPage = () => {
-  const [isModalOpen,setIsmodalOpen]=useState(false)
+  const [isModalOpen,setIsmodalOpen]=useState(false);
   const dataSource = [
     {
       key: "1",
@@ -60,11 +61,7 @@ const CartPage = () => {
 
         </div>
       </div>
-      <Modal title="Fatura Olustur" open={isModalOpen} footer={false} onCancel={()=>setIsmodalOpen(false)}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+      <CreateBill isModalOpen={isModalOpen} setIsmodalOpen={setIsmodalOpen}/>
       {console.log(isModalOpen)}
     </>
   );
