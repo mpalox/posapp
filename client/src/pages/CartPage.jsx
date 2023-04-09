@@ -1,4 +1,4 @@
-import { Table, Card, Button,Modal } from "antd";
+import { Table, Card, Button } from "antd";
 import Header from "../components/header/Header";
 import { useState } from "react";
 import CreateBill from "../components/cart/CreateBill";
