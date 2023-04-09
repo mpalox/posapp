@@ -1,25 +1,13 @@
-import { Button, Form, Input, Carousel } from "antd";
+import { Button, Form, Input, Carousel, Checkbox } from "antd";
 import { Link } from "react-router-dom";
 import AuthCarousel from "../../components/auth/AuthCarousel";
-const Register = () => {
+const Login = () => {
   return (
     <div className="h-screen">
       <div className="flex justify-between h-full">
         <div className="xl:px-20 px-10 w-full flex flex-col h-full justify-center relative">
           <h1 className="text-center text-5xl font-bold mb-2">LOGO</h1>
-          <Form layout="vertical">
-            <Form.Item
-              label="Kullanici Adi"
-              name={"username"}
-              rules={[
-                {
-                  required: true,
-                  message: "Kullanici Adi Alani Bos Birakilamaz!",
-                },
-              ]}
-            >
-              <Input></Input>
-            </Form.Item>
+          <Form layout="vertical">            
             <Form.Item
               label="E-Mail"
               name={"email"}
@@ -43,20 +31,13 @@ const Register = () => {
               ]}
             >
               <Input.Password></Input.Password>
-            </Form.Item>
-
-            <Form.Item
-              label="Sifre Tekrar"
-              name={"passwordAgain"}
-              rules={[
-                {
-                  required: true,
-                  message: "Sifre Tekrar Alani Bos Birakilamaz!",
-                },
-              ]}
-            >
-              <Input.Password></Input.Password>
-            </Form.Item>
+            </Form.Item> 
+            <Form.Item name={"remember"} valuePropName="checked">
+                <div className="flex justify-between item-center">
+                    <Checkbox>Beni Hatirla</Checkbox> 
+                    <Link>Sifremi Unuttum</Link>               
+                </div>            
+            </Form.Item>           
 
             <Form.Item>
               <Button
@@ -65,14 +46,14 @@ const Register = () => {
                 className="w-full"
                 size="large"
               >
-                Kaydol
+                Giris Yap
               </Button>
             </Form.Item>
           </Form>
           <div className="flex justify-center mt-auto absolute left-0 bottom-10 w-full">
-            Bir hesabınız var mı? &nbsp;{" "}
-            <Link to="/login" className="text-blue-600">
-              Şimdi giriş yap
+            Henuz Bir hesabınız yok mu? &nbsp;{" "}
+            <Link to="/register" className="text-blue-600">
+              Şimdi Kaydol 
             </Link>
           </div>
         </div>
@@ -109,4 +90,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
