@@ -39,4 +39,5 @@ packages/react-devtools-timeline/dist
 
 client/node_modules/*
 api/node_modules/*
+api/.env
 client/deneme/*
