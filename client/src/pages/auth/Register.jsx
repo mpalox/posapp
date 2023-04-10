@@ -48,11 +48,25 @@ const Register = () => {
             <Form.Item
               label="Sifre Tekrar"
               name={"passwordAgain"}
+              dependencies={["password"]}
               rules={[
                 {
                   required: true,
                   message: "Sifre Tekrar Alani Bos Birakilamaz!",
                 },
+
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error(
+                        "Sifreler ayni olmak zorunda" 
+                      )
+                    );
+                  },
+                }),
               ]}
             >
               <Input.Password></Input.Password>
