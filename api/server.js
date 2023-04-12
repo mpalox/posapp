@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const dotEnv = require("dotenv");
 
 const app = express();
-const cors=require("cors")
+const cors = require("cors");
 
 //? Listening port number
 const port = 5000;
@@ -18,6 +18,7 @@ const categoryRoute = require("./routes/categories.js");
 const productRoute = require("./routes/products.js");
 const billRoute = require("./routes/bills.js");
 const authRoute = require("./routes/auth.js");
+const userRoute = require("./routes/users.js");
 
 dotEnv.config();
 
@@ -41,6 +42,7 @@ app.use("/api/categories", categoryRoute);
 app.use("/api/products", productRoute);
 app.use("/api/bills", billRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
 
 // app.get("/", (req, res) => res.send("Hello world"));
 app.listen(port, () => {
