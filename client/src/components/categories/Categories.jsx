@@ -5,33 +5,44 @@ import Edit from "./Edit";
 import "./style.css"
 
 
-const Categories = ({categories,setCategories}) => {
-    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);   
-   
-    return (
+const Categories = ({ categories, setCategories }) => {
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  return (
     <ul className="flex gap-4 md:flex-col text-lg">
-            {categories.map((item)=>(
-                <li className="category-item" key={item._id}>
-                    <span>{item.title}</span>
-                </li>
-            ))}
+      {categories.map((item) => (
+        <li className="category-item" key={item._id}>
+          <span>{item.title}</span>
+        </li>
+      ))}
 
-        <li className="category-item !bg-purple-800 hover:opacity-90" onClick={()=>setIsAddModalOpen(true)}>
-           <PlusOutlined className="md:text-2xl"/>
-        </li>
-        <li className="category-item !bg-orange-800 hover:opacity-90" onClick={()=>setIsEditModalOpen(true)}>
-           <EditOutlined className="md:text-2xl"/>
-        </li>
-        <Add isAddModalOpen={isAddModalOpen}
-            setIsAddModalOpen={setIsAddModalOpen}
-            categories={categories}
-            setCategories={setCategories} />
-        <Edit isEditModalOpen={isEditModalOpen}
-              setIsEditModalOpen={setIsEditModalOpen}  />
-        
+      <li
+        className="category-item !bg-purple-800 hover:opacity-90"
+        onClick={() => setIsAddModalOpen(true)}
+      >
+        <PlusOutlined className="md:text-2xl" />
+      </li>
+      <li
+        className="category-item !bg-orange-800 hover:opacity-90"
+        onClick={() => setIsEditModalOpen(true)}
+      >
+        <EditOutlined className="md:text-2xl" />
+      </li>
+      <Add
+        isAddModalOpen={isAddModalOpen}
+        setIsAddModalOpen={setIsAddModalOpen}
+        categories={categories}
+        setCategories={setCategories}
+      />
+      <Edit
+        isEditModalOpen={isEditModalOpen}
+        setIsEditModalOpen={setIsEditModalOpen}
+        categories={categories}
+        setCategories={setCategories}
+      />
     </ul>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;
